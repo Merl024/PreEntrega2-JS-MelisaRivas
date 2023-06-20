@@ -134,7 +134,7 @@ class Registro{
       this.fecha = fechaI
    }
    mostrarInfoRegistro(){
-      alert(`Tu peso es ${this.peso}kg con una altura de ${this.altura}m, ingresado en la fecha ${this.fecha.toLocaleDateString()}`)
+      alert(`Tu peso es ${this.peso}kg con una altura de ${this.altura}m, ingresado en la fecha ${this.fecha}`)
    }
 }
 const registro = []
@@ -147,12 +147,26 @@ function agregarDato(){
    registro.push(nuevoDato)
 }
 
-
 function verRegistro(array){
-   alert('Tu registro es:')
-   for( let registro of array){
-      alert(registro.id, registro.pesoI, registro.alturaI, registro.fechaI)
-   }
+   alert("Tu resgistro se mostrará a continuación:")
+   array.forEach( 
+      registro => registro.mostrarInfoRegistro()
+   );
+}
+
+function verRegistroOrdenado(array){
+   const menorMayor = [].concat(array)
+   menorMayor.sort((a ,b) => b.precio - a.precio)
+   verRegistro(menorMayor)
+}
+function eliminarDato(array){
+   verRegistro(array)
+   let eliminarDato = parseInt(prompt("Ingrese el número que desea eliminiar: "))
+   let arrayId = array.map(registro => registro.id)
+   let indice = arrayId.indexOf(eliminarDato)
+   alert(indice)
+   array.splice(indice, 1)
+   verRegistro(array)
 }
 
 function imc(){
@@ -183,8 +197,10 @@ function registroDePeso(){
       let opcionesRe = parseInt(prompt(`Estamos para ayudarte, ${usuario}. ¿Qué desea hacer?
       0 - Salir del menu.
       1 - Agregar dato al registro.
-      2 - Ver registro.
-      3 - Calcular IMC.`))
+      2 - Ver registro por orden de entrada.
+      3 - Ver registro por oden de menor a mayor.
+      4 - Eliminar dato del registro.
+      5 - Calcular IMC.`))
       switch(opcionesRe){
          case 1: 
             agregarDato()
@@ -193,6 +209,12 @@ function registroDePeso(){
             verRegistro(registro)
          break
          case 3:
+            verRegistroOrdenado(registro)
+         break
+         case 4:
+            eliminarDato(registro)
+         break
+         case 5:
             imc()
          continue
          case 0:
@@ -206,7 +228,7 @@ function registroDePeso(){
    }while(!salirMenu)
 }
 //MENÚ PRINCIPAL
-let usuario = prompt("Bienvenido/a a nuestro convertidor de masa, volumen y longitudes. Ingrese su nombre: ")
+let usuario = prompt("Bienvenido/a a nuestra página, en donde puede acceder a un organizador de su peso, altura y fecha, además, incluimos un convertidor de masas, volumenes y longitdues. Ingrese su nombre: ")
 let salirMenu = false
 do{
    let opciones = parseInt(prompt(`Estamos para ayudarte, ${usuario}. ¿Qué desea hacer?
