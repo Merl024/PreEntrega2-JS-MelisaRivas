@@ -39,7 +39,7 @@ function inchAcm(){
    alert(`${inch}in a metros son ${conversionAcm.toFixed(2)}cm`) 
 }
 
-//Menu para el convertidor de msas, volumen y longitudes
+//Menu para el convertidor de masas, volumen y longitudes
 function menuConvertidor(){
    do{
       let opcionesCon = parseInt(prompt(`Estamos para ayudarte, ${usuario}. ¿Qué desea convertir?
@@ -125,7 +125,7 @@ function menuConvertidor(){
       }while(!salirMenu)      
 }
 
-//Menu para el control de peso
+//Creando, arrays, objetos para hacer el menu de registro de peso y altura, con sus fechas
 class Registro{
    constructor(id, pesoI, alturaI, fechaI){
       this.id = id,
@@ -137,12 +137,13 @@ class Registro{
       alert(`Tu peso es ${this.peso}kg con una altura de ${this.altura}m, ingresado en la fecha ${this.fecha}`)
    }
 }
+//funciones para poner al menu de registro
 const registro = []
 function agregarDato(){
    alert("Recuerda poner su peso en kilogramos y su altura en metros. (Al momento de poner la fecha pon el mes antes del día)")
    let peso = parseFloat(prompt("Ingrese un nuevo peso:"))
    let altura = parseFloat(prompt("Ingrese su nueva altura:"))
-   let fecha = prompt("Ingrese la fecha de este peso. (Ejemplo: 06/19/2023)")
+   let fecha = prompt("Ingrese la fecha de este peso. (Ponga el mes primero, ejemplo: 06/19/2023): ")
    const nuevoDato = new Registro(registro.length+1, peso, altura, fecha)
    registro.push(nuevoDato)
 }
@@ -159,6 +160,7 @@ function verRegistroOrdenado(array){
    menorMayor.sort((a ,b) => b.precio - a.precio)
    verRegistro(menorMayor)
 }
+
 function eliminarDato(array){
    verRegistro(array)
    let eliminarDato = parseInt(prompt("Ingrese el número que desea eliminiar: "))
@@ -191,7 +193,7 @@ function imc(){
       alert("Regrese al menu principal")
    }
 }
-
+//menu de registro
 function registroDePeso(){
    do{
       let opcionesRe = parseInt(prompt(`Estamos para ayudarte, ${usuario}. ¿Qué desea hacer?
@@ -227,8 +229,8 @@ function registroDePeso(){
       }
    }while(!salirMenu)
 }
-//MENÚ PRINCIPAL
-let usuario = prompt("Bienvenido/a a nuestra página, en donde puede acceder a un organizador de su peso, altura y fecha, además, incluimos un convertidor de masas, volumenes y longitdues. Ingrese su nombre: ")
+//MENÚ PRINCIPAL juntando del menu de convertidor y de registro
+let usuario = prompt("Bienvenido/a a nuestra página, en donde puede acceder a un organizador  de registro de su peso y altura, de igual forma puede tener regritrada la fecha en que tuvo ese peso y altura. También, incluimos un convertidor de masas, volumenes y longitdues. Ingrese su nombre: ")
 let salirMenu = false
 do{
    let opciones = parseInt(prompt(`Estamos para ayudarte, ${usuario}. ¿Qué desea hacer?
