@@ -230,7 +230,7 @@ function registroDePeso(){
    }while(!salirMenu)
 }
 //MENÚ PRINCIPAL juntando del menu de convertidor y de registro
-let usuario = prompt("Bienvenido/a a nuestra página, en donde puede acceder a un organizador  de registro de su peso y altura, de igual forma puede tener regritrada la fecha en que tuvo ese peso y altura. También, incluimos un convertidor de masas, volumenes y longitdues. Ingrese su nombre: ")
+let usuario = prompt("Bienvenido/a a nuestra página, en donde puede acceder a un organizador de registro de su peso y altura, de igual forma puede tener regristrada la fecha en que tuvo ese peso y altura. También, incluimos un convertidor de masas, volumenes y longitdues. Ingrese su nombre: ")
 let salirMenu = false
 do{
    let opciones = parseInt(prompt(`Estamos para ayudarte, ${usuario}. ¿Qué desea hacer?
