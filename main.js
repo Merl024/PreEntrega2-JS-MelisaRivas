@@ -157,7 +157,7 @@ function verRegistro(array){
 
 function verRegistroOrdenado(array){
    const menorMayor = [].concat(array)
-   menorMayor.sort((a ,b) => b.peso - a.peso)
+   menorMayor.sort((a,b) => a.peso - b.peso)
    verRegistro(menorMayor)
 }
 
